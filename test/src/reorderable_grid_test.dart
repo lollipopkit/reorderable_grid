@@ -347,7 +347,7 @@ void main() {
           onReorder: handleReorder,
         ),
       ),
-      const Duration(milliseconds: 100),
+      duration: const Duration(milliseconds: 100),
     );
     await tester.pumpAndSettle();
 
@@ -369,14 +369,14 @@ void main() {
 
 class TestGrid extends StatefulWidget {
   const TestGrid({
-    Key? key,
+    super.key,
     this.textColor,
     this.iconColor,
     this.proxyDecorator,
     required this.items,
     this.reverse = false,
     this.crossAxisCount = 4,
-  }) : super(key: key);
+  });
 
   final List<int> items;
   final Color? textColor;

@@ -33,7 +33,7 @@ class ReorderableGrid extends StatefulWidget {
   /// {@macro reorderable_grid_view.reorderable_grid}
   /// The [itemCount] must be greater than or equal to zero.
   const ReorderableGrid({
-    Key? key,
+    super.key,
     required this.itemBuilder,
     required this.itemCount,
     required this.onReorder,
@@ -54,8 +54,7 @@ class ReorderableGrid extends StatefulWidget {
     this.clipBehavior = Clip.hardEdge,
     this.autoScroll,
     this.onReorderStart,
-  })  : assert(itemCount >= 0),
-        super(key: key);
+  })  : assert(itemCount >= 0);
 
   /// Called, as needed, to build grid item widgets.
   ///
@@ -305,7 +304,7 @@ class SliverReorderableGrid extends StatefulWidget {
   ///
   /// The [itemCount] must be greater than or equal to zero.
   const SliverReorderableGrid({
-    Key? key,
+    super.key,
     required this.itemBuilder,
     required this.itemCount,
     required this.onReorder,
@@ -315,8 +314,7 @@ class SliverReorderableGrid extends StatefulWidget {
     this.proxyDecorator,
     this.autoScroll = true,
     this.scrollDirection = Axis.vertical,
-  })  : assert(itemCount >= 0),
-        super(key: key);
+  })  : assert(itemCount >= 0);
 
   /// {@macro flutter.widgets.reorderable_list.itemBuilder}
   final IndexedWidgetBuilder itemBuilder;
@@ -942,11 +940,11 @@ class ReorderableGridDragStartListener extends StatelessWidget {
   /// This is most commonly used to wrap part of a grid item like a drag
   /// handle.
   const ReorderableGridDragStartListener({
-    Key? key,
+    super.key,
     required this.child,
     required this.index,
     this.enabled = true,
-  }) : super(key: key);
+  });
 
   /// The widget for which the application would like to respond to a tap and
   /// drag gesture by starting a reordering drag on a reorderable grid.
@@ -1017,11 +1015,11 @@ class ReorderableGridDelayedDragStartListener
   /// This is most commonly used to wrap an entire grid item in a reorderable
   /// grid.
   const ReorderableGridDelayedDragStartListener({
-    Key? key,
-    required Widget child,
-    required int index,
-    bool enabled = true,
-  }) : super(key: key, child: child, index: index, enabled: enabled);
+    super.key,
+    required super.child,
+    required super.index,
+    super.enabled,
+  });
 
   @override
   MultiDragGestureRecognizer createRecognizer() {
@@ -1138,7 +1136,6 @@ Offset _overlayOrigin(BuildContext context) {
 
 class _DragItemProxy extends StatelessWidget {
   const _DragItemProxy({
-    Key? key,
     required this.listState,
     required this.index,
     required this.child,
@@ -1146,7 +1143,7 @@ class _DragItemProxy extends StatelessWidget {
     required this.size,
     required this.animation,
     required this.proxyDecorator,
-  }) : super(key: key);
+  });
 
   final SliverReorderableGridState listState;
   final int index;

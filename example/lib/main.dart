@@ -7,7 +7,7 @@ class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  _MyAppState createState() => _MyAppState();
+  State<MyApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
@@ -31,6 +31,7 @@ class _MyAppState extends State<MyApp> {
         body: ReorderableGridView.extent(
           maxCrossAxisExtent: 150,
           onReorder: _onReorder,
+          // ignore: avoid_print
           onReorderStart: (index) => print(index),
           childAspectRatio: 1,
           children: items.map((item) {
